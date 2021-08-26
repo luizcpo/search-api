@@ -1,12 +1,19 @@
 class RestaurantsController < ApplicationController
+  before_action :sanitize_params
+
   def index
-    render json: 'Mensagem de teste'.to_json
+    service = RestaurantSearchService.new(params)
+
+    render json: service.search, 
+           each_serializer: RestaurantSerializer,
+           status: :ok
   end
 
+  private
+
   def sanitize_params
-    params.require(:user_id)
-    params[:user_id] = params[:user_id]&.to_i
-    params[:page] = params[:page]&.to_i
-    params[:department_id] = params[:department_id]&.map(&:to_i)
+    params[:customer_rating] = params[:customer_rating]&.to_i
+    params[:distance] = params[:distance]&.to_i
+    params[:price] = params[:price]&.to_i
   end
 end

@@ -5,6 +5,8 @@ ruby '2.7.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.4', '>= 6.1.4.1'
+# ActiveModel::Serializers allows you to generate your JSON in an object-oriented and convention-driven manner.
+gem 'active_model_serializers', '~> 0.10.2'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', '~> 1.4'
 # Use Puma as the app server
@@ -28,6 +30,17 @@ gem 'bootsnap', '>= 1.4.4', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  # Faker, a port of Data::Faker from Perl, is used to easily generate fake data: names, addresses, phone numbers, etc.
+  gem 'faker', '~> 2.18'
+  # WebMock allows stubbing HTTP requests and setting expectations on HTTP requests.
+  gem 'webmock', '~> 3.14'
+  # Shoulda Matchers provides RSpec- and Minitest-compatible one-liners to test common 
+  # Rails functionality that, if written by hand, would be much longer, more complex, and error-prone.
+  gem 'shoulda-matchers', '~> 5.0'
+  # factory_bot_rails provides integration between factory_bot and rails 5.0 or newer
+  gem 'factory_bot_rails', '~> 6.2'
+  # rspec-rails is a testing framework for Rails 5+.
+  gem 'rspec-rails', '~> 5.0', '>= 5.0.2'
 end
 
 group :development do
